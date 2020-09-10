@@ -10,7 +10,7 @@
             <ul class="p-listbox-list" role="listbox" aria-multiselectable="multiple">
                 <li v-for="(option, i) of visibleOptions" :tabindex="isOptionDisabled(option) ? null : '0'" :class="['p-listbox-item', {'p-highlight': isSelected(option), 'p-disabled': isOptionDisabled(option)}]" v-ripple
                     :aria-label="getOptionLabel(option)" :key="getOptionRenderKey(option)" @click="onOptionSelect($event, option)" @touchend="onOptionTouchEnd()" @keydown="onOptionKeyDown($event, option)" role="option" :aria-selected="isSelected(option)">
-                    <slot name="option" :option="option" :index="i">
+                    <slot name="option" :option="option" :index="i" :selected="isSelected(option)">
                         {{getOptionLabel(option)}}
                     </slot>
                 </li>
